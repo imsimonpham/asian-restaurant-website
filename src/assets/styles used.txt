@@ -1,0 +1,12 @@
+COLORS USED: 
+
+Dark-ish: #17171D (bg & text)
+Red: #DE4623 (bg & text)
+White-ish: #FCF3DC (bg & text)
+Brown-ish: #EFE4C9 (contact form)
+Darkest: #0F0F14 (testimonials)
+
+FONTS USED: 
+
+Raleway
+Raleway, Helvetica, Arial, sans-serif;
