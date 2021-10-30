@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useState } from "react"
+import { useEffect } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -175,8 +175,6 @@ const Price = styled.div`
 `
 
 const MenuPage = () => {
-  const mediaMatch = window.matchMedia("(max-width: 900px)")
-
   return (
     <Layout>
       <Seo title="Menu" />
@@ -194,10 +192,10 @@ const MenuPage = () => {
                 style={{
                   flexDirection:
                     category.reverse === true ? "row-reverse" : "row",
-                  borderBottom:
-                    category.breaker === true && mediaMatch.matches
-                      ? `1px solid ${colors.brownish}`
-                      : "none",
+                  // borderBottom:
+                  //   category.breaker === true && window.matchMedia("(max-width: 900px)")
+                  //     ? `1px solid ${colors.brownish}`
+                  //     : "none",
                 }}
               >
                 <PricesContainer>
