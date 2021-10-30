@@ -130,6 +130,10 @@ const ParallaxImg = styled.section`
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  @media screen and (max-width: 500px) {
+    height: 300px;
+  }
 `
 
 const AboutPage = () => {

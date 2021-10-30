@@ -60,6 +60,13 @@ const DarkContainer = styled.div`
 const DishesContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+
+  @media screen and (max-width: 900px) {
+    & > div:nth-of-type(2),
+    & > div:nth-of-type(3) {
+      border-bottom: none;
+    }
+  }
 `
 
 const SingleCategoryContainer = styled.div`
@@ -80,6 +87,7 @@ const SingleCategoryContainer = styled.div`
     height: auto;
     flex-direction: column !important;
     padding: 0 0 2rem 0;
+    border-bottom: none;
   }
 `
 
@@ -192,11 +200,6 @@ const MenuPage = () => {
                 style={{
                   flexDirection:
                     category.reverse === true ? "row-reverse" : "row",
-                  borderBottom:
-                    category.breaker === true &&
-                    window.matchMedia("(max-width: 900px)")
-                      ? `1px solid ${colors.brownish}`
-                      : "none",
                 }}
               >
                 <PricesContainer>
