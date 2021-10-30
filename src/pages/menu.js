@@ -192,10 +192,11 @@ const MenuPage = () => {
                 style={{
                   flexDirection:
                     category.reverse === true ? "row-reverse" : "row",
-                  // borderBottom:
-                  //   category.breaker === true && window.matchMedia("(max-width: 900px)")
-                  //     ? `1px solid ${colors.brownish}`
-                  //     : "none",
+                  borderBottom:
+                    category.breaker === true &&
+                    window.matchMedia("(max-width: 900px)")
+                      ? `1px solid ${colors.brownish}`
+                      : "none",
                 }}
               >
                 <PricesContainer>
