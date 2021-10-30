@@ -9,6 +9,12 @@ import Footer from "./Footer"
 const Page = styled.div`
   position: relative;
   overflow-x: hidden;
+
+  @media screen and (max-width: 500px) {
+    p {
+      font-size: 0.9rem;
+    }
+  }
 `
 
 const Layout = ({ children }) => {

@@ -10,23 +10,38 @@ import {
   GrYoutube,
   GrPinterest,
 } from "react-icons/gr"
-import { Link } from "gatsby"
 
 const FooterContainer = styled.footer`
   background: ${colors.whiteish};
+
+  br {
+    border: red;
+  }
 `
 
 const FooterWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
+
+  @media screen and (max-width: 900px) {
+    padding: 1rem 5% 0 5%;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 5rem 5% 0 5%;
+  }
 `
 
 const FooterTop = styled.div`
   height: 400px;
-  border-bottom: 1px solid ${colors.brownish};
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    height: auto;
+  }
 `
 
 const FooterTextContainer = styled.div`
@@ -48,6 +63,10 @@ const FooterTextContainer = styled.div`
       margin-left: 1rem;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 3rem;
+  }
 `
 
 const PhoneIcon = styled(FaPhoneAlt)``
@@ -65,6 +84,10 @@ const LogoContainer = styled.div`
     width: 165px;
     height: 165px;
   }
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 3rem;
+  }
 `
 
 const FooterBottom = styled.div`
@@ -72,18 +95,50 @@ const FooterBottom = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    margin-top: -2.5rem;
+  }
 `
 
 const CopyRightContainer = styled.div`
   font-weight: 400;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 500px) {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 `
 
 const SocialMediaContainer = styled.div`
-  & > * {
+  a {
     margin-left: 1.2rem;
     cursor: pointer;
+    display: inline-block;
+
+    @media screen and (max-width: 500px) {
+      margin-left: 0;
+      margin-right: 1.2rem;
+    }
   }
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+`
+
+const Breaker = styled.div`
+  border: 1px solid ${colors.brownish};
 `
 
 const FacebookIcon = styled(GrFacebookOption)``
@@ -115,9 +170,12 @@ const Footer = () => {
             <img src={logoLg} alt="logo" />
           </LogoContainer>
         </FooterTop>
+      </FooterWrapper>
+      <Breaker />
+      <FooterWrapper>
         <FooterBottom>
           <CopyRightContainer>
-            © {currentYear} | Created by Simon Pham | All Rights Reserved
+            <p>© {currentYear} | Created by Simon Pham | All Rights Reserved</p>
           </CopyRightContainer>
           <SocialMediaContainer>
             <IconContext.Provider value={{ color: `${colors.red}` }}>

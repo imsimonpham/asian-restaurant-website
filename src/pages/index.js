@@ -5,8 +5,6 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Button } from "../components/Button"
-import { IconContext } from "react-icons/lib"
-import Carousel from "react-bootstrap/Carousel"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import bg from "../assets/images/2.jpg"
@@ -15,11 +13,9 @@ import bg2 from "../assets/images/3.jpg"
 import bg3 from "../assets/images/4.jpg"
 import bg4 from "../assets/images/5.jpg"
 import logoLg from "../assets/logo/2.png"
-import blackBg from "../assets/customers/blackBg.png"
 
-import { AiFillStar } from "react-icons/ai"
-
-import { menuIcons, colors, customerTestimonials } from "../data/variables"
+import { menuIcons, colors } from "../data/variables"
+import Testimonials from "../components/Testimonials"
 
 const DarkContainer = styled.div`
   color: ${colors.whiteish};
@@ -37,14 +33,19 @@ const TopSection = styled.section`
   align-items: center;
   margin: 0 auto;
   margin-bottom: 10rem;
+
+  @media screen and (max-width: 500px) {
+    top: 120px;
+    min-height: auto;
+  }
 `
 
 const TopContent = styled.div`
+  width: 47%;
+  z-index: 4;
   & > * {
     font-family: "Raleway", sans-serif;
   }
-  width: 47%;
-  z-index: 4;
 
   p {
     margin-bottom: 4rem;
@@ -56,6 +57,10 @@ const TopContent = styled.div`
       background: ${colors.whiteish};
     }
   }
+
+  @media screen and (max-width: 500px) {
+    width: 70%;
+  }
 `
 
 const Title = styled.h1`
@@ -65,6 +70,10 @@ const Title = styled.h1`
   font-weight: 700;
   @media screen and (max-width: 900px) {
     font-size: 6rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 2.4rem;
   }
 `
 
@@ -77,14 +86,18 @@ const TopImgContainer = styled.div`
   z-index: 3;
   overflow: hidden;
 
-  @media screen and (max-width: 900px) {
-    width: 70%;
-  }
-
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 500px) {
+    width: 85%;
+    height: 300px;
   }
 `
 
@@ -93,6 +106,12 @@ const BottomSection = styled.section`
   height: 1370px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    height: auto;
+    padding: 5rem 0;
+  }
 `
 
 const BottomImgContainer = styled.div`
@@ -103,6 +122,10 @@ const BottomImgContainer = styled.div`
   div:nth-child(1) {
     flex-basis: 55%;
     margin-bottom: 4rem;
+
+    @media screen and (max-width: 500px) {
+      height: 250px;
+    }
   }
   div:nth-child(2) {
     flex-basis: 30%;
@@ -138,6 +161,10 @@ const BottomTextContainer = styled.div`
     @media screen and (max-width: 900px) {
       font-size: 3rem;
     }
+    @media screen and (max-width: 500px) {
+      font-size: 1.8rem;
+      margin: 4rem 0;
+    }
   }
 
   p:first-of-type {
@@ -167,6 +194,10 @@ const MenuSection = styled.section`
     height: auto;
     padding: 6rem 0;
   }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `
 const MenuSectionLeft = styled.div`
   /* border: 1px solid red; */
@@ -174,6 +205,10 @@ const MenuSectionLeft = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `
 
 const MenuTextWrapper = styled.div`
@@ -206,6 +241,10 @@ const MenuIconsContainer = styled.div`
 const IconRow = styled.div`
   display: flex;
   border-bottom: 1px solid ${colors.brownish};
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `
 
 const SingleIconContainer = styled.div`
@@ -223,6 +262,10 @@ const SingleIconContainer = styled.div`
     @media screen and (max-width: 900px) {
       font-size: 1.18rem;
     }
+
+    @media screen and (max-width: 500px) {
+      font-size: 1rem;
+    }
   }
   p {
     font-size: 0.8rem;
@@ -234,10 +277,23 @@ const SingleIconContainer = styled.div`
     img {
       width: 63px;
     }
+
+    @media screen and (max-width: 500px) {
+      flex-basis: auto;
+    }
   }
 
   div:nth-of-type(2) {
     flex-basis: 60%;
+
+    @media screen and (max-width: 500px) {
+      flex-basis: auto;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    justify-content: center;
+    margin-right: 0;
   }
 `
 
@@ -247,6 +303,7 @@ const MenuSectionRight = styled.div`
   display: flex;
   justify-content: center;
 
+  /* inner wrapper */
   & > div {
     width: 90%;
     height: 78%;
@@ -262,17 +319,28 @@ const MenuSectionRight = styled.div`
       height: 65% !important;
     }
 
+    @media screen and (max-width: 500px) {
+      height: auto !important;
+      top: 0;
+    }
+
     /* img wrapper */
     & > div:first-of-type {
       height: 57%;
       width: 82%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
       @media screen and (max-width: 900px) {
         height: 50%;
         width: 95%;
       }
-      img {
-        width: 100%;
-        height: 100%;
+
+      @media screen and (max-width: 500px) {
+        margin-bottom: 2rem;
       }
     }
 
@@ -282,19 +350,22 @@ const MenuSectionRight = styled.div`
       top: 43%;
       width: 81%;
       height: 38%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
       @media screen and (max-width: 900px) {
         width: 95%;
         height: 33%;
         top: 35%;
       }
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
 
-    @media screen and (max-width: 900px) {
-      height: auto;
+      @media screen and (max-width: 500px) {
+        position: static;
+        margin-bottom: 4rem;
+      }
     }
   }
 
@@ -307,12 +378,16 @@ const MenuSectionRight = styled.div`
       width: 200px;
     }
   }
+
+  @media screen and (max-width: 900px) {
+    height: auto;
+  }
 `
 
 const GallerySection = styled.section`
   display: flex;
   justify-content: space-between;
-  padding: 10rem 0;
+  padding: 10rem 0 0 0;
   max-width: 1200px;
   margin: 0 auto;
 
@@ -326,6 +401,10 @@ const GallerySection = styled.section`
       object-fit: cover;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `
 
 const GalleryTextContainer = styled.div`
@@ -334,6 +413,10 @@ const GalleryTextContainer = styled.div`
   h1 {
     font-size: 3.5rem;
     margin-bottom: 3rem;
+
+    @media screen and (max-width: 500px) {
+      font-size: 2.25rem;
+    }
   }
   p:first-of-type {
     margin-bottom: 1.5rem;
@@ -343,81 +426,9 @@ const GalleryTextContainer = styled.div`
   p:nth-of-type(2) {
     margin-bottom: 4rem;
   }
-`
 
-const TestimonialSection = styled.section`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 0 10rem 0;
-`
-
-const TestimonialTitlesContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 3rem;
-
-  h1 {
-    flex-basis: 40%;
-    font-size: 3.5rem;
-    font-weight: 700;
-    span {
-      color: ${colors.red};
-    }
-
-    @media screen and (max-width: 900px) {
-      font-size: 2rem;
-    }
-  }
-`
-const RatingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-basis: 35%;
-  text-align: right;
-`
-const StarsContainer = styled.div``
-const StarIcon = styled(AiFillStar)`
-  margin-left: 0.4rem;
-  font-size: 0.8rem;
-`
-const CarouselContainer = styled.div`
-  height: 350px;
-  max-width: 1000px;
-  color: ${colors.whiteish};
-  margin: 0 auto;
-
-  .carousel {
-    height: 350px;
-    width: 100%;
-  }
-
-  .carouselItem {
-    height: 350px;
-    width: 100%;
-  }
-
-  .carouselCaption {
-    p {
-      color: ${colors.whiteish};
-    }
-    & > div {
-      width: 85px;
-      height: 85px;
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, -180%);
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-    }
-  }
-
-  .carousel-dark .carousel-indicators [data-bs-target] {
-    background-color: ${colors.red};
+  @media screen and (max-width: 500px) {
+    margin-bottom: 3rem;
   }
 `
 
@@ -566,51 +577,9 @@ const IndexPage = () => {
             <img src={bg4} alt="background image" />
           </div>
         </GallerySection>
-        <TestimonialSection>
-          <TestimonialTitlesContainer>
-            <h1>
-              What our <span>customers</span> say
-            </h1>
-            <RatingContainer>
-              <StarsContainer>
-                <IconContext.Provider value={{ color: `${colors.red}` }}>
-                  <StarIcon />
-                  <StarIcon />
-                  <StarIcon />
-                  <StarIcon />
-                  <StarIcon />
-                </IconContext.Provider>
-              </StarsContainer>
-              <p>Average customer rating 4.82 (253 votes)</p>
-            </RatingContainer>
-          </TestimonialTitlesContainer>
-          <CarouselContainer>
-            <Carousel variant="dark" className="carousel" aria-hidden="true">
-              {customerTestimonials.map((item, index) => {
-                return (
-                  <Carousel.Item key={index} className="carouselItem">
-                    <img
-                      className="d-block w-100"
-                      src={blackBg}
-                      alt="black background"
-                    />
-                    <Carousel.Caption className="carouselCaption">
-                      <div>
-                        <img
-                          className="d-block w-100"
-                          src={item.avatar}
-                          alt="customer"
-                        />
-                      </div>
-                      <p>{item.testimonial}</p>
-                      <p>{item.name}</p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                )
-              })}
-            </Carousel>
-          </CarouselContainer>
-        </TestimonialSection>
+        <DarkContainer>
+          <Testimonials />
+        </DarkContainer>
       </DarkContainer>
     </Layout>
   )

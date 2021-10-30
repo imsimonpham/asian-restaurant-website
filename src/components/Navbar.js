@@ -111,6 +111,11 @@ const NavLink = styled(Link)`
     text-align: center;
     border-bottom: none !important;
   }
+
+  @media screen and (max-width: 500px) {
+    height: 50vh;
+    font-size: 0.8rem;
+  }
 `
 
 const Navbar = () => {
@@ -128,8 +133,6 @@ const Navbar = () => {
   const handleClick = () => {
     setClick(!click)
   }
-
-  console.log(click)
 
   useEffect(() => {
     changeNav()

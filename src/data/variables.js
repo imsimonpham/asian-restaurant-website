@@ -7,6 +7,10 @@ import soup from "../assets/icons/soup.png"
 import ava1 from "../assets/customers/1.jpg"
 import ava2 from "../assets/customers/2.jpg"
 import ava3 from "../assets/customers/3.jpg"
+import dish1 from "../assets/food/1.png"
+import dish2 from "../assets/food/2.png"
+import dish3 from "../assets/food/3.png"
+import dish4 from "../assets/food/4.png"
 
 export const colors = {
   darkish: "#17171D",
@@ -85,5 +89,112 @@ export const customerTestimonials = [
     testimonial:
       "quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et",
     name: "Jenny Maze",
+  },
+]
+
+export const restaurantMenu = [
+  {
+    dishCat: "Bao Bun",
+    dishes: [
+      {
+        dishName: "Proin gravida gravida",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$23",
+      },
+      {
+        dishName: "Mauris pellentesque",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$12",
+      },
+      {
+        dishName: "Libero lacinia",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$16",
+      },
+    ],
+    demoPic: dish1,
+    reverse: false,
+    breaker: true,
+  },
+  {
+    dishCat: "Woo Bowl",
+    dishes: [
+      {
+        dishName: "Proin gravida gravida",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$23",
+      },
+      {
+        dishName: "Mauris pellentesque",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$12",
+      },
+      {
+        dishName: "Libero lacinia",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$16",
+      },
+    ],
+    demoPic: dish2,
+    reverse: true,
+    breaker: false,
+  },
+  {
+    dishCat: "Soups",
+    dishes: [
+      {
+        dishName: "Proin gravida gravida",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$23",
+      },
+      {
+        dishName: "Mauris pellentesque",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$12",
+      },
+      {
+        dishName: "Libero lacinia",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$16",
+      },
+    ],
+    demoPic: dish3,
+    reverse: false,
+    breaker: true,
+  },
+  {
+    dishCat: "Noodles",
+    dishes: [
+      {
+        dishName: "Proin gravida gravida",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$23",
+      },
+      {
+        dishName: "Mauris pellentesque",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$12",
+      },
+      {
+        dishName: "Libero lacinia",
+        description:
+          "Lorem ipsum dolor sit amet purus vitae libero lacinia accumsan vitae.",
+        price: "$16",
+      },
+    ],
+    demoPic: dish4,
+    reverse: true,
+    breaker: false,
   },
 ]
