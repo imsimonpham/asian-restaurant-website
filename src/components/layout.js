@@ -5,6 +5,7 @@ import "./layout.css"
 import Navbar from "./Navbar"
 import styled from "styled-components"
 import Footer from "./Footer"
+import SimpleReactLightbox from "simple-react-lightbox"
 
 const Page = styled.div`
   position: relative;
@@ -29,12 +30,14 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <Page>
-      <Navbar />
-      {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
-      <main>{children}</main>
-      <Footer />
-    </Page>
+    <SimpleReactLightbox>
+      <Page>
+        <Navbar />
+        {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
+        <main>{children}</main>
+        <Footer />
+      </Page>
+    </SimpleReactLightbox>
   )
 }
 

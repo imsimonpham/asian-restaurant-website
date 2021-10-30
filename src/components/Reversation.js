@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Button } from "./Button"
 import { colors } from "../data/variables"
+import SimpleReactLightbox from "simple-react-lightbox"
 
 const ReservationSection = styled.section`
   text-align: center;
@@ -41,6 +42,7 @@ const ReservationSection = styled.section`
     }
   }
 
+  //button
   a {
     padding: 1rem 2.5rem;
   }
