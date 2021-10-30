@@ -176,9 +176,6 @@ const Price = styled.div`
 
 const MenuPage = () => {
   const mediaMatch = window.matchMedia("(max-width: 900px)")
-  const mobileMediaMatch = window.matchMedia("(max-width: 500px)")
-
-  console.log(mediaMatch)
 
   return (
     <Layout>
