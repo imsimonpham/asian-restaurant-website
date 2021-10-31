@@ -1,9 +1,32 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Asian Restaurant`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    menuLinks: [
+      {
+        name: "home",
+        link: "/",
+      },
+      {
+        name: "about",
+        link: "/about",
+      },
+      {
+        name: "gallery",
+        link: "/gallery",
+      },
+      {
+        name: "menu",
+        link: "/menu",
+      },
+      {
+        name: "contact",
+        link: "/contact",
+      },
+    ],
+    url: "",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,6 +42,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/gallery`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
     `gatsby-transformer-sharp`,
