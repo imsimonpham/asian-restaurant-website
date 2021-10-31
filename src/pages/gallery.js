@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import styled from "styled-components"
 import Reservation from "../components/Reversation"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { SRLWrapper } from "simple-react-lightbox"
 
@@ -103,7 +103,7 @@ const GalleryContainer = styled.div`
 const GalleryPage = () => {
   const data = useStaticQuery(graphql`
     query GalleryQuery {
-      allFile(filter: { extension: {}, relativeDirectory: {} }) {
+      allFile(filter: { extension: { eq: "jpg" }, relativeDirectory: {} }) {
         edges {
           node {
             base
@@ -122,6 +122,8 @@ const GalleryPage = () => {
     }
   `)
 
+  console.log(data.allFile.edges)
+
   return (
     <Layout>
       <Seo title="Gallery" />
@@ -136,7 +138,6 @@ const GalleryPage = () => {
             {data.allFile.edges.map((image, index) => {
               return (
                 <Img
-                  loading="eager"
                   key={index}
                   fluid={image.node.childImageSharp.fluid}
                   alt={image.node.base.split(".")[0]}

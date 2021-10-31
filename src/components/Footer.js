@@ -179,16 +179,32 @@ const Footer = () => {
           </CopyRightContainer>
           <SocialMediaContainer>
             <IconContext.Provider value={{ color: `${colors.red}` }}>
-              <a href="/https://www.facebook.com/" target="_blank">
+              <a
+                href="/https://www.facebook.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FacebookIcon />
               </a>
-              <a href="/https://www.facebook.com/" target="_blank">
+              <a
+                href="/https://www.facebook.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <TwitterIcon />
               </a>
-              <a href="https://twitter.com/home" target="_blank">
+              <a
+                href="https://twitter.com/home"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <YoutubeIcon />
               </a>
-              <a href="https://www.pinterest.com/" target="_blank">
+              <a
+                href="https://www.pinterest.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <PinterestIcon />
               </a>
             </IconContext.Provider>

@@ -1,6 +1,5 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -454,7 +453,7 @@ const IndexPage = () => {
               bite provides a real explosion of flavours. In addition, an always
               smiling and energetic crew that will answer all of your questions.
             </p>
-            <Button>See The Menu</Button>
+            <Button to="/menu">See The Menu</Button>
           </TopContent>
           <TopImgContainer>
             <img
@@ -496,7 +495,7 @@ const IndexPage = () => {
                 suscipit adipiscing. Cum sociis natoque penatibus et ultrices
                 volutpat.
               </p>
-              <Button>About Us</Button>
+              <Button to="/about">About Us</Button>
             </div>
           </BottomTextContainer>
         </BottomSection>
@@ -552,7 +551,7 @@ const IndexPage = () => {
               <div>
                 <img src={logoLg} alt="logo" />
               </div>
-              <Button>See The Full Menu</Button>
+              <Button to="/menu">See The Full Menu</Button>
             </div>
           </MenuSectionRight>
         </MenuSection>
@@ -571,7 +570,7 @@ const IndexPage = () => {
               massa ac turpis faucibus orci luctus non, consectetuer lobortis
               quis, varius in, purus. Integer ultrices.
             </p>
-            <Button>Our Gallery</Button>
+            <Button to="/gallery">Our Gallery</Button>
           </GalleryTextContainer>
           <div>
             <img src={bg4} alt="background image" />

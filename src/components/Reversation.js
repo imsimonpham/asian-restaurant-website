@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { Button } from "./Button"
 import { colors } from "../data/variables"
-import SimpleReactLightbox from "simple-react-lightbox"
 
 const ReservationSection = styled.section`
   text-align: center;
@@ -61,7 +60,7 @@ const Reversation = () => {
           ante eget hendrerit posuere. Nunc urna libero, congue porta nibh a,
           semper feugiat sem. Sed auctor dui eleifend.
         </p>
-        <Button>make a reservation</Button>
+        <Button to="/contact">make a reservation</Button>
       </div>
     </ReservationSection>
   )
