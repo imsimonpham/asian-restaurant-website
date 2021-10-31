@@ -23,11 +23,7 @@ const Layout = ({ children }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          menuLinks {
-            url
-            name
-            link
-          }
+          title
         }
       }
     }

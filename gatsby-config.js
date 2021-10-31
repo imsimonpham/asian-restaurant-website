@@ -4,43 +4,6 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
-    image: "dummy content",
-    tagline: "dummy content",
-    name: "dummy content",
-    socialLinks: [],
-    Query: [{ allGallery: "dummy content" }],
-    menuLinks: [
-      {
-        name: "home",
-        link: "/",
-        url: "dummy content",
-        type: "dummy content",
-      },
-      {
-        name: "about",
-        link: "/about",
-        url: "dummy content",
-        type: "dummy content",
-      },
-      {
-        name: "gallery",
-        link: "/gallery",
-        url: "dummy content",
-        type: "dummy content",
-      },
-      {
-        name: "menu",
-        link: "/menu",
-        url: "dummy content",
-        type: "dummy content",
-      },
-      {
-        name: "contact",
-        link: "/contact",
-        url: "dummy content",
-        type: "dummy content",
-      },
-    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

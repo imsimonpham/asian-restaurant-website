@@ -7,13 +7,3 @@ exports.createPages = async ({ actions }) => {
     defer: true,
   })
 }
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const Query = `
-    type AuthorJson implements Node {
-      joinedAt: Date
-    }
-  `
-  createTypes(Query)
-}

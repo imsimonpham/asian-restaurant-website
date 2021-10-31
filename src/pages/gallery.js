@@ -122,8 +122,6 @@ const GalleryPage = () => {
     }
   `)
 
-  console.log(data.allFile.edges)
-
   return (
     <Layout>
       <Seo title="Gallery" />
