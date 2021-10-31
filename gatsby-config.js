@@ -8,25 +8,29 @@ module.exports = {
       {
         name: "home",
         link: "/",
+        url: "",
       },
       {
         name: "about",
         link: "/about",
+        url: "",
       },
       {
         name: "gallery",
         link: "/gallery",
+        url: "",
       },
       {
         name: "menu",
         link: "/menu",
+        url: "",
       },
       {
         name: "contact",
         link: "/contact",
+        url: "",
       },
     ],
-    url: "",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -42,13 +46,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/gallery`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`,
       },
     },
     `gatsby-transformer-sharp`,
