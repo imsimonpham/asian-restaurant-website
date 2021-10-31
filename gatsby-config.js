@@ -5,9 +5,9 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
     image: "",
-    socialLinks: "",
     tagline: "",
     name: "",
+    socialLinks: [],
     menuLinks: [
       {
         name: "home",
