@@ -30,14 +30,14 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <SimpleReactLightbox>
-      <Page>
-        <Navbar />
-        {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
-        <main>{children}</main>
-        <Footer />
-      </Page>
-    </SimpleReactLightbox>
+    // <SimpleReactLightbox>
+    <Page>
+      <Navbar />
+      {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
+      <main>{children}</main>
+      <Footer />
+    </Page>
+    // </SimpleReactLightbox>
   )
 }
 
