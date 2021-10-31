@@ -109,11 +109,7 @@ const GalleryPage = () => {
             base
             childImageSharp {
               fluid(maxWidth: 350, quality: 50) {
-                src
-                srcSet
-                aspectRatio
-                sizes
-                base64
+                ...GatsbyImageSharpFluid
               }
             }
           }
