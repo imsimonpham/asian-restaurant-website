@@ -11,6 +11,8 @@ import {
   GrPinterest,
 } from "react-icons/gr"
 
+import { useStaticQuery, graphql } from "gatsby"
+
 const FooterContainer = styled.footer`
   background: ${colors.whiteish};
 
@@ -150,12 +152,17 @@ const Footer = () => {
   const date = new Date()
   const currentYear = date.getFullYear()
 
+  const data = useStaticQuery(query)
+
+  const info = data.allStrapiInfo.edges[0].node.generalInfo
+  const socialMedia = data.allStrapiInfo.edges[0].node.socialMedia
+
   return (
     <FooterContainer>
       <FooterWrapper>
         <FooterTop>
           <FooterTextContainer>
-            <h4>BEWOO - Asian Restaurant</h4>
+            <h4> {info.businessName} - Asian Restaurant</h4>
             <p>
               Unusual food combining the best of Asian cuisine. The very first
               bite provides a real explosion of flavours. In addition, an always
@@ -163,7 +170,7 @@ const Footer = () => {
             </p>
             <div>
               <PhoneIcon />
-              <p>333 014 4501</p>
+              <p>{info.phone}</p>
             </div>
           </FooterTextContainer>
           <LogoContainer>
@@ -179,32 +186,16 @@ const Footer = () => {
           </CopyRightContainer>
           <SocialMediaContainer>
             <IconContext.Provider value={{ color: `${colors.red}` }}>
-              <a
-                href="/https://www.facebook.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={socialMedia.facebook} target="_blank" rel="noreferrer">
                 <FacebookIcon />
               </a>
-              <a
-                href="/https://www.facebook.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={socialMedia.twitter} target="_blank" rel="noreferrer">
                 <TwitterIcon />
               </a>
-              <a
-                href="https://twitter.com/home"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={socialMedia.youtube} target="_blank" rel="noreferrer">
                 <YoutubeIcon />
               </a>
-              <a
-                href="https://www.pinterest.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={socialMedia.pinterest} target="_blank" rel="noreferrer">
                 <PinterestIcon />
               </a>
             </IconContext.Provider>
@@ -214,5 +205,29 @@ const Footer = () => {
     </FooterContainer>
   )
 }
+
+//data from strapi
+const query = graphql`
+  query InfoQuery {
+    allStrapiInfo {
+      edges {
+        node {
+          generalInfo {
+            address
+            businessName
+            phone
+          }
+          socialMedia {
+            facebook
+            instagram
+            pinterest
+            twitter
+            youtube
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Footer

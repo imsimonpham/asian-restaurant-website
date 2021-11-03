@@ -11,6 +11,8 @@ import { Button2 } from "../components/Button"
 
 import bg from "../assets/images/7.jpg"
 
+import { useStaticQuery, graphql } from "gatsby"
+
 const HeroSection = styled.section`
   background: ${colors.darkish};
   height: 400px;
@@ -129,6 +131,27 @@ const InfoWrapper = styled.div`
   }
 `
 
+const BusinessHours = styled.div`
+  /* border: 1px solid red; */
+  display: flex;
+
+  & > p:nth-of-type(1) {
+    flex-basis: 44%;
+  }
+
+  @media screen and (max-width: 900px) {
+    & > p:nth-of-type(1) {
+      flex-basis: 50%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    & > p:nth-of-type(1) {
+      flex-basis: 35%;
+    }
+  }
+`
+
 const PhoneIcon = styled(FaPhoneAlt)`
   color: ${colors.red};
   font-size: 2rem;
@@ -203,71 +226,174 @@ const ContactForm = styled.form`
   }
 `
 
-const ContactPage = () => (
-  <Layout>
-    <Seo title="Contact us" />
-    <HeroSection>
-      <HeroWrapper>
-        <Title>Contact us</Title>
-      </HeroWrapper>
-    </HeroSection>
-    <LightContainer>
-      <ContactFormSection>
-        <h1>Visit Us</h1>
-        <InfoWrapper>
-          <div>
-            <h4>Bewoo</h4>
-            <p>Studio 132 Everystreet</p>
-            <p>Manhatthan</p>
-            <p>NY 1234 USA</p>
-          </div>
-          <div>
-            <h4>Hours</h4>
-            <p>Monday — Friday: 8AM — 4PM</p>
-            <p>Saturday: 10AM — 2PM</p>
-          </div>
-          <div>
-            <h4>phone</h4>
-            <div>
-              <PhoneIcon />
-              <span>333 014 4501</span>
-            </div>
-          </div>
-        </InfoWrapper>
-        <ContactFormWrapper>
-          <ContactForm>
-            <h1>Write to us</h1>
-            <div>
-              <input type="text" placeholder="Name" name="name" required />
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Subject"
-                name="subject"
-                required
-              />
-            </div>
+const ContactPage = () => {
+  const data = useStaticQuery(query)
+  const info = data.allStrapiInfo.edges[0].node.generalInfo
+  const hours = data.allStrapiInfo.edges[0].node.businessHours
 
-            <textarea
-              required
-              name="message"
-              cols="30"
-              rows="8"
-              placeholder="Your message"
-            />
-            <Button2 type="submit"> Send the message</Button2>
-          </ContactForm>
-          <div>
-            <img src={bg} alt="background image" />
-          </div>
-        </ContactFormWrapper>
-      </ContactFormSection>
-    </LightContainer>
-    <DarkContainer>
-      <Reservation />
-    </DarkContainer>
-  </Layout>
-)
+  //duplicate hours object and convert into an array
+  const duplicatedHours = { ...hours }
+  const hoursArr = Object.entries(duplicatedHours)
+  const sortedHoursArr = hoursArr.sort(function (a, b) {
+    return a[1].id - b[1].id
+  })
+
+  //styles
+
+  return (
+    <Layout>
+      <Seo title="Contact us" />
+      <HeroSection>
+        <HeroWrapper>
+          <Title>Contact us</Title>
+        </HeroWrapper>
+      </HeroSection>
+      <LightContainer>
+        <ContactFormSection>
+          <h1>Visit Us</h1>
+          <InfoWrapper>
+            <div>
+              <h4>{info.businessName}</h4>
+              <p>Studio 132 Everystreet</p>
+              <p>Manhatthan</p>
+              <p>NY 1234 USA</p>
+            </div>
+            <div>
+              <h4>Hours</h4>
+              {sortedHoursArr.map((day, index) => {
+                return (
+                  <BusinessHours key={index}>
+                    <p>{day[1].day}:</p>
+                    <p>
+                      {day[1].isOpen
+                        ? ` ${day[1].from.slice(0, 5)} - ${day[1].to.slice(
+                            0,
+                            5
+                          )}`
+                        : "CLOSED"}
+                    </p>
+                  </BusinessHours>
+                )
+              })}
+            </div>
+            <div>
+              <h4>phone</h4>
+              <div>
+                <PhoneIcon />
+                <span>{info.phone}</span>
+              </div>
+            </div>
+          </InfoWrapper>
+          <ContactFormWrapper>
+            <ContactForm>
+              <h1>Write to us</h1>
+              <div>
+                <input type="text" placeholder="Name" name="name" required />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  name="subject"
+                  required
+                />
+              </div>
+
+              <textarea
+                required
+                name="message"
+                cols="30"
+                rows="8"
+                placeholder="Your message"
+              />
+              <Button2 type="submit"> Send the message</Button2>
+            </ContactForm>
+            <div>
+              <img src={bg} alt="background image" />
+            </div>
+          </ContactFormWrapper>
+        </ContactFormSection>
+      </LightContainer>
+      <DarkContainer>
+        <Reservation />
+      </DarkContainer>
+    </Layout>
+  )
+}
+
+//data from strapi
+const query = graphql`
+  query ContactQuery {
+    allStrapiInfo {
+      edges {
+        node {
+          generalInfo {
+            address
+            businessName
+            phone
+          }
+          socialMedia {
+            facebook
+            instagram
+            pinterest
+            twitter
+            youtube
+          }
+          businessHours {
+            monday {
+              day
+              from
+              isOpen
+              to
+              id
+            }
+            saturday {
+              day
+              from
+              isOpen
+              to
+              id
+            }
+            sunday {
+              day
+              from
+              isOpen
+              to
+              id
+            }
+            thursday {
+              day
+              from
+              isOpen
+              to
+              id
+            }
+            tuesday {
+              day
+              from
+              isOpen
+              to
+              id
+            }
+            wednesday {
+              day
+              from
+              isOpen
+              to
+              id
+            }
+            friday {
+              day
+              from
+              isOpen
+              to
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ContactPage

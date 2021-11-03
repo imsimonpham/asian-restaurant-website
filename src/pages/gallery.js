@@ -108,7 +108,7 @@ const GalleryPage = () => {
           node {
             base
             childImageSharp {
-              fluid(maxHeight: 350, maxWidth: 350, quality: 50) {
+              fluid(quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -117,7 +117,7 @@ const GalleryPage = () => {
       }
     }
   `)
-  console.log(data.allFile.edges)
+
   return (
     <Layout>
       <Seo title="Gallery" />
@@ -127,7 +127,7 @@ const GalleryPage = () => {
         </HeroWrapper>
       </HeroSection>
       <LightContainer>
-        <SRLWrapper>
+        <SRLWrapper height="auto">
           <GalleryContainer>
             {data.allFile.edges.map((image, index) => {
               return (
